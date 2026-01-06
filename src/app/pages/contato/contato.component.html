@@ -1,0 +1,95 @@
+<div class="contato-page">
+  <div class="page-header">
+    <h1>Localização e Contato</h1>
+    <p>Entre em contato conosco e agende seu atendimento</p>
+  </div>
+
+  <div class="container contato-content">
+    <div class="contact-cards">
+      <div class="contact-card">
+        <div class="card-icon">📞</div>
+        <h3>Telefone</h3>
+        <p>{{ contactInfo.phone }}</p>
+        <p class="card-description">Ligue para agendar ou tirar dúvidas</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">💬</div>
+        <h3>WhatsApp</h3>
+        <p>{{ contactInfo.phone }}</p>
+        <button class="btn-whatsapp" (click)="openWhatsApp()">
+          Enviar Mensagem
+        </button>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">📧</div>
+        <h3>Email</h3>
+        <p>{{ contactInfo.email }}</p>
+        <button class="btn-email" (click)="sendEmail()">
+          Enviar Email
+        </button>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">📍</div>
+        <h3>Localização</h3>
+        <p>{{ contactInfo.address }}</p>
+        <p class="card-description">Atendimento presencial e virtual</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">⏰</div>
+        <h3>Horário de Funcionamento</h3>
+        <p>{{ contactInfo.hours }}</p>
+        <p class="card-description">Agende seu atendimento</p>
+      </div>
+
+      <div class="contact-card">
+        <div class="card-icon">🎯</div>
+        <h3>Redes Sociais</h3>
+        <p>Siga-nos para novidades e inspiração</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com" target="_blank" title="Instagram">📸</a>
+          <a href="https://www.facebook.com" target="_blank" title="Facebook">👍</a>
+          <a href="https://www.pinterest.com" target="_blank" title="Pinterest">📌</a>
+        </div>
+      </div>
+    </div>
+
+    <aside class="info-sidebar">
+      <div class="info-box">
+        <h3>Informações Importantes</h3>
+        <div class="info-item">
+          <h4>Atendimento Virtual</h4>
+          <p>Oferecemos atendimento por videochamada para clientes de outras cidades.</p>
+        </div>
+        <div class="info-item">
+          <h4>Consulta Inicial</h4>
+          <p>A primeira consulta é gratuita e sem compromisso.</p>
+        </div>
+        <div class="info-item">
+          <h4>Estacionamento</h4>
+          <p>Temos estacionamento disponível para nossos clientes.</p>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <h3>Pronto para Começar?</h3>
+        <p>Agende sua consulta personalizada agora mesmo!</p>
+        <button class="btn-primary" routerLink="/atendimento">
+          Agendar Agora
+        </button>
+      </div>
+    </aside>
+  </div>
+
+  <section class="map-section">
+    <h2>Localização no Mapa</h2>
+    <p>Visite nosso ateliê em Fortaleza</p>
+    <div class="map-placeholder">
+      <p>Mapa será exibido aqui</p>
+      <p class="map-address">Fortaleza, Ceará - Brasil</p>
+    </div>
+  </section>
+</div>

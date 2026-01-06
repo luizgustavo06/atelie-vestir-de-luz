@@ -1,0 +1,65 @@
+<div class="container-home">
+  <app-carousel></app-carousel>
+</div>
+<div class="container-home-conteudo">
+  <section class="highlight-section">
+    <div class="container">
+      <h2>Bem-vindo ao Ateliê Vestir de Luz</h2>
+      <p class="highlight-text">
+        Transformamos seus sonhos em realidade através de vestidos
+        personalizados, feitos com amor e dedicação.
+      </p>
+    </div>
+  </section>
+
+  <!-- Seção de Diferenciais -->
+  <section class="features-section">
+    <div class="container">
+      <h2>Por Que Nos Escolher</h2>
+      <div class="features-grid">
+        <div class="feature-card" *ngFor="let feature of features">
+          <div class="feature-icon">{{ feature.icon }}</div>
+          <h3>{{ feature.title }}</h3>
+          <p>{{ feature.description }}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de Coleções -->
+  <section class="collections-section">
+    <div class="container">
+      <h2>Nossas Coleções</h2>
+      <div class="collections-grid">
+        <div class="collection-card" *ngFor="let collection of collections">
+          <div
+            class="collection-image"
+            [style.backgroundImage]="'url(' + collection.image + ')'"
+          >
+            <div class="collection-overlay">
+              <h3>{{ collection.name }}</h3>
+              <p>{{ collection.description }}</p>
+              <button class="btn-secondary" routerLink="/catalogo">
+                Ver Coleção
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seção de CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2>Pronto para Criar Seu Vestido?</h2>
+      <p>
+        Agende um atendimento personalizado e vamos transformar sua visão em
+        realidade.
+      </p>
+      <button class="btn-primary" routerLink="/atendimento">
+        Agendar Atendimento
+      </button>
+    </div>
+  </section>
+</div>

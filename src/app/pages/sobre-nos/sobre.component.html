@@ -1,0 +1,72 @@
+<div class="sobre-page">
+  <div class="page-header">
+    <h1>Sobre Nós</h1>
+    <p>Conheça a história e os valores do Ateliê Vestir de Luz</p>
+  </div>
+
+  <div class="container">
+    <!-- Seção de História -->
+    <section class="historia-section">
+      <div class="historia-content">
+        <h2>Nossa História</h2>
+        <p>
+          O Ateliê Vestir de Luz nasceu do sonho de transformar momentos especiais em memórias inesquecíveis. 
+          Com mais de 15 anos de experiência em moda e costura, nossa equipe se dedica a criar vestidos que 
+          não apenas vestem o corpo, mas também iluminam a alma.
+        </p>
+        <p>
+          Cada vestido é uma obra de arte, resultado da dedicação, criatividade e amor que colocamos em cada 
+          ponto. Acreditamos que toda mulher merece se sentir especial e confiante em seu grande dia.
+        </p>
+        <p>
+          Nossa missão é simples: transformar seus sonhos em realidade através de vestidos personalizados que 
+          refletem sua personalidade, estilo e beleza.
+        </p>
+      </div>
+      <div class="historia-image">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&h=400&fit=crop" alt="Ateliê">
+      </div>
+    </section>
+
+    <!-- Seção de Diferenciais -->
+    <section class="diferenciais-section">
+      <h2>Por Que Nos Escolher</h2>
+      <div class="diferenciais-grid">
+        <div class="diferencial-card" *ngFor="let diferencial of diferenciais">
+          <h3>{{ diferencial.title }}</h3>
+          <p>{{ diferencial.description }}</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Inspiração -->
+    <section class="inspiracao-section">
+      <h2>Inspiração e Criação</h2>
+      <div class="inspiracao-content">
+        <div class="inspiracao-text">
+          <h3>Processo Criativo</h3>
+          <p>
+            Cada coleção é inspirada em tendências de moda, arte, natureza e histórias de vida. 
+            Nosso processo criativo começa com uma conversa profunda com você, entendendo seus desejos, 
+            necessidades e sonhos.
+          </p>
+          <p>
+            Depois, nossa equipe de designers e costureiras trabalha para transformar suas ideias em 
+            um vestido único e exclusivo que você amará usar.
+          </p>
+          <ul class="processo-list">
+            <li>Consulta e planejamento</li>
+            <li>Escolha de tecidos e cores</li>
+            <li>Criação do design</li>
+            <li>Confecção artesanal</li>
+            <li>Provas e ajustes</li>
+            <li>Entrega final</li>
+          </ul>
+        </div>
+        <div class="inspiracao-image">
+          <img src="https://images.unsplash.com/photo-1595777707802-41d339d29c91?w=500&h=400&fit=crop" alt="Processo">
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

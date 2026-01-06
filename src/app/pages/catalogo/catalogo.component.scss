@@ -1,0 +1,264 @@
+@import '../../../styles.scss';
+
+.catalogo-page {
+  min-height: 100vh;
+  background-color: $color-light;
+  padding-bottom: $spacing-2xl;
+
+  .page-header {
+    background: linear-gradient(135deg, $color-navy 0%, darken($color-navy, 5%) 100%);
+    color: $color-white;
+    padding:  $spacing-sm 0;
+    text-align: center;
+
+    h1 {
+      color: $color-white;
+      font-size: 2.5rem;
+      margin-bottom: $spacing-md;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1.75rem;
+      }
+    }
+
+    p {
+      color: rgba($color-white, 0.95);
+      font-size: 1.1rem;
+    }
+
+  
+  }
+
+  .catalogo-content {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    gap: $spacing-2xl;
+    margin-top: $spacing-2xl;
+
+    @media (max-width: $breakpoint-tablet) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  .filters-sidebar {
+    background-color: $color-white;
+    padding: $spacing-lg;
+    border-radius: 8px;
+    height: fit-content;
+    box-shadow: 0 2px 8px rgba($color-navy, 0.1);
+
+    h3 {
+      color: $color-navy;
+      margin-bottom: $spacing-lg;
+      font-size: 1.25rem;
+    }
+
+    .filter-group {
+      margin-bottom: $spacing-lg;
+
+      label {
+        display: block;
+        color: $color-navy;
+        font-weight: 600;
+        margin-bottom: $spacing-sm;
+        font-size: 0.95rem;
+      }
+
+      select {
+        width: 100%;
+        padding: $spacing-sm;
+        border: 1px solid rgba($color-navy, 0.2);
+        border-radius: 4px;
+        background-color: $color-white;
+        color: $color-dark-text;
+        font-size: 0.95rem;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+
+        &:focus {
+          outline: none;
+          border-color: $color-peach;
+          box-shadow: 0 0 0 3px rgba($color-peach, 0.1);
+        }
+      }
+    }
+
+    .btn-reset {
+      width: 100%;
+      padding: $spacing-sm;
+      background-color: $color-peach;
+      color: $color-navy;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: $color-yellow;
+        transform: translateY(-2px);
+      }
+    }
+  }
+
+  .dresses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: $spacing-2xl;
+
+    @media (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+
+    .dress-card {
+      background-color: $color-white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba($color-navy, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba($color-navy, 0.2);
+
+        .dress-overlay {
+          opacity: 1;
+        }
+      }
+
+      .dress-image {
+        width: 100%;
+        height: 350px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .dress-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba($color-navy, 0.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+
+        .btn-details {
+          background-color: $color-peach;
+          color: $color-navy;
+          border: none;
+          padding: $spacing-sm $spacing-lg;
+          border-radius: 4px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: $color-yellow;
+            transform: scale(1.05);
+          }
+        }
+      }
+
+      .dress-info {
+        padding: $spacing-lg;
+
+        h3 {
+          color: $color-navy;
+          margin-bottom: $spacing-sm;
+          font-size: 1.25rem;
+        }
+
+        .dress-material {
+          color: $color-peach;
+          font-weight: 600;
+          font-size: 0.9rem;
+          margin-bottom: $spacing-sm;
+        }
+
+        .dress-specs {
+          display: flex;
+          gap: $spacing-sm;
+          margin-bottom: $spacing-md;
+
+          .spec {
+            background-color: $color-light;
+            color: $color-navy;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+          }
+        }
+
+        .dress-description {
+          color: $color-light-text;
+          font-size: 0.95rem;
+          margin-bottom: $spacing-md;
+          line-height: 1.5;
+        }
+
+        .dress-price {
+          color: $color-navy;
+          font-weight: 600;
+          font-size: 1.1rem;
+          margin-bottom: $spacing-md;
+        }
+
+        button {
+          width: 100%;
+          padding: $spacing-sm;
+          background-color: $color-navy;
+          color: $color-white;
+          border: none;
+          border-radius: 4px;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+
+          &:hover {
+            background-color: darken($color-navy, 10%);
+            transform: translateY(-2px);
+          }
+        }
+      }
+    }
+  }
+
+  .no-results {
+    text-align: center;
+    padding: $spacing-2xl $spacing-md;
+    background-color: $color-white;
+    border-radius: 8px;
+    margin-top: $spacing-2xl;
+
+    p {
+      color: $color-light-text;
+      font-size: 1.1rem;
+      margin-bottom: $spacing-lg;
+    }
+
+    button {
+      background-color: $color-navy;
+      color: $color-white;
+      border: none;
+      padding: $spacing-sm $spacing-lg;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: darken($color-navy, 10%);
+        transform: translateY(-2px);
+      }
+    }
+  }
+}

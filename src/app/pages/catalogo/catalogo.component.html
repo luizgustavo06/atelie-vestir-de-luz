@@ -1,0 +1,71 @@
+<div class="catalogo-page">
+  <div class="page-header">
+      <h1>Nosso Catálogo</h1>
+      <p>Conheça nossas coleções exclusivas de vestidos personalizados</p>
+  </div>
+  <div class="container catalogo-content">
+    <aside class="filters-sidebar">
+      <h3>Filtros</h3>
+
+      <div class="filter-group">
+        <label for="color">Cor</label>
+        <select id="color" [(ngModel)]="selectedColor" (change)="onFilterChange()">
+          <option value="">Todas as cores</option>
+          <option *ngFor="let color of colors" [value]="color">{{ color }}</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="occasion">Ocasião</label>
+        <select id="occasion" [(ngModel)]="selectedOccasion" (change)="onFilterChange()">
+          <option value="">Todas as ocasiões</option>
+          <option *ngFor="let occasion of occasions" [value]="occasion">{{ occasion }}</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="size">Tamanho</label>
+        <select id="size" [(ngModel)]="selectedSize" (change)="onFilterChange()">
+          <option value="">Todos os tamanhos</option>
+          <option *ngFor="let size of sizes" [value]="size">{{ size }}</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="style">Estilo</label>
+        <select id="style" [(ngModel)]="selectedStyle" (change)="onFilterChange()">
+          <option value="">Todos os estilos</option>
+          <option *ngFor="let style of styles" [value]="style">{{ style }}</option>
+        </select>
+      </div>
+
+      <button class="btn-reset" (click)="resetFilters()">Limpar Filtros</button>
+    </aside>
+
+    <main class="dresses-grid">
+      <div class="dress-card" *ngFor="let dress of filteredDresses">
+        <div class="dress-image" [style.backgroundImage]="'url(' + dress.image + ')'">
+          <div class="dress-overlay">
+            <button class="btn-details">Ver Detalhes</button>
+          </div>
+        </div>
+        <div class="dress-info">
+          <h3>{{ dress.name }}</h3>
+          <p class="dress-material">{{ dress.material }}</p>
+          <div class="dress-specs">
+            <span class="spec">{{ dress.color }}</span>
+            <span class="spec">{{ dress.size }}</span>
+          </div>
+          <p class="dress-description">{{ dress.description }}</p>
+          <p class="dress-price">{{ dress.price }}</p>
+          <button class="btn-primary" (click)="solicitaOrcamento()">Solicitar Orçamento</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="no-results" *ngIf="filteredDresses.length === 0">
+    <p>Nenhum vestido encontrado com os filtros selecionados.</p>
+    <button class="btn-primary" (click)="resetFilters()">Limpar Filtros</button>
+  </div>
+</div>

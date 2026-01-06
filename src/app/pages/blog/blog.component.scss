@@ -1,0 +1,199 @@
+@import '../../../styles.scss';
+
+.blog-page {
+  min-height: 100vh;
+  background-color: $color-light;
+
+  .page-header {
+    background: linear-gradient(135deg, $color-navy 0%, darken($color-navy, 5%) 100%);
+    color: $color-white;
+    padding: $spacing-2xl $spacing-md;
+    text-align: center;
+
+    h1 {
+      color: $color-white;
+      font-size: 2.5rem;
+      margin-bottom: $spacing-md;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1.75rem;
+      }
+    }
+
+    p {
+      color: rgba($color-white, 0.95);
+      font-size: 1.1rem;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: $spacing-2xl $spacing-md;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: $spacing-2xl;
+    margin-bottom: $spacing-2xl;
+
+    @media (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+
+    .blog-card {
+      background-color: $color-white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba($color-navy, 0.1);
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba($color-navy, 0.15);
+
+        .blog-image {
+          transform: scale(1.05);
+        }
+      }
+
+      .blog-image {
+        width: 100%;
+        height: 250px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        overflow: hidden;
+
+        .blog-category {
+          position: absolute;
+          top: $spacing-md;
+          right: $spacing-md;
+          background-color: $color-peach;
+          color: $color-navy;
+          padding: $spacing-sm $spacing-md;
+          border-radius: 4px;
+          font-size: 0.85rem;
+          font-weight: 600;
+        }
+      }
+
+      .blog-content {
+        padding: $spacing-lg;
+
+        h3 {
+          color: $color-navy;
+          margin-bottom: $spacing-md;
+          font-size: 1.25rem;
+          line-height: 1.4;
+        }
+
+        .blog-meta {
+          display: flex;
+          gap: $spacing-lg;
+          margin-bottom: $spacing-md;
+          font-size: 0.85rem;
+          color: $color-light-text;
+
+          @media (max-width: $breakpoint-mobile) {
+            flex-direction: column;
+            gap: $spacing-sm;
+          }
+
+          .date,
+          .author {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+          }
+        }
+
+        .blog-excerpt {
+          color: $color-light-text;
+          margin-bottom: $spacing-lg;
+          line-height: 1.6;
+          font-size: 0.95rem;
+        }
+
+        .btn-read-more {
+          background: none;
+          border: none;
+          color: $color-navy;
+          font-weight: 600;
+          cursor: pointer;
+          padding: 0;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $color-peach;
+          }
+        }
+      }
+    }
+  }
+
+  .newsletter-section {
+    background: linear-gradient(135deg, $color-navy 0%, darken($color-navy, 5%) 100%);
+    color: $color-white;
+    padding: $spacing-2xl;
+    border-radius: 8px;
+    text-align: center;
+
+    h2 {
+      color: $color-white;
+      font-size: 2rem;
+      margin-bottom: $spacing-md;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1.5rem;
+      }
+    }
+
+    p {
+      color: rgba($color-white, 0.95);
+      font-size: 1.1rem;
+      margin-bottom: $spacing-lg;
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: $spacing-sm;
+      max-width: 500px;
+      margin: 0 auto;
+
+      @media (max-width: $breakpoint-mobile) {
+        flex-direction: column;
+      }
+
+      input {
+        flex: 1;
+        padding: $spacing-sm;
+        border: none;
+        border-radius: 4px;
+        font-size: 0.95rem;
+
+        &::placeholder {
+          color: rgba($color-dark-text, 0.5);
+        }
+      }
+
+      button {
+        padding: $spacing-sm $spacing-lg;
+        background-color: $color-peach;
+        color: $color-navy;
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: $color-yellow;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+}

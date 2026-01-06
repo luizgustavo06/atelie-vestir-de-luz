@@ -1,0 +1,199 @@
+@import '../../../styles.scss';
+
+.sobre-page {
+  min-height: 100vh;
+  background-color: $color-light;
+
+  .page-header {
+    background: linear-gradient(135deg, $color-navy 0%, darken($color-navy, 5%) 100%);
+    color: $color-white;
+    padding: $spacing-2xl $spacing-md;
+    text-align: center;
+
+    h1 {
+      color: $color-white;
+      font-size: 2.5rem;
+      margin-bottom: $spacing-md;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1.75rem;
+      }
+    }
+
+    p {
+      color: rgba($color-white, 0.95);
+      font-size: 1.1rem;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+  }
+
+  .historia-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: $spacing-2xl;
+    align-items: center;
+    padding: $spacing-2xl 0;
+
+    @media (max-width: $breakpoint-tablet) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+
+    h2 {
+      color: $color-navy;
+      font-size: 2.5rem;
+      margin-bottom: $spacing-lg;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1.75rem;
+      }
+    }
+
+    p {
+      color: $color-light-text;
+      margin-bottom: $spacing-md;
+      line-height: 1.8;
+      font-size: 1rem;
+    }
+
+    .historia-image {
+      img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 8px 20px rgba($color-navy, 0.15);
+      }
+    }
+  }
+
+  .diferenciais-section {
+    padding: $spacing-2xl 0;
+    background-color: $color-white;
+    border-radius: 8px;
+    padding: $spacing-2xl;
+    margin: $spacing-2xl 0;
+
+    h2 {
+      text-align: center;
+      color: $color-navy;
+      font-size: 2.5rem;
+      margin-bottom: $spacing-2xl;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1.75rem;
+      }
+    }
+
+    .diferenciais-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: $spacing-2xl;
+
+      @media (max-width: $breakpoint-mobile) {
+        grid-template-columns: 1fr;
+        gap: $spacing-lg;
+      }
+
+      .diferencial-card {
+        background: linear-gradient(135deg, $color-light 0%, rgba($color-peach, 0.1) 100%);
+        padding: $spacing-2xl;
+        border-radius: 8px;
+        border-left: 4px solid $color-peach;
+        transition: all 0.3s ease;
+
+        &:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 8px 20px rgba($color-navy, 0.1);
+        }
+
+        h3 {
+          color: $color-navy;
+          margin-bottom: $spacing-md;
+          font-size: 1.25rem;
+        }
+
+        p {
+          color: $color-light-text;
+          margin: 0;
+          line-height: 1.6;
+        }
+      }
+    }
+  }
+
+  .inspiracao-section {
+    padding: $spacing-2xl 0;
+
+    h2 {
+      text-align: center;
+      color: $color-navy;
+      font-size: 2.5rem;
+      margin-bottom: $spacing-2xl;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1.75rem;
+      }
+    }
+
+    .inspiracao-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: $spacing-2xl;
+      align-items: center;
+
+      @media (max-width: $breakpoint-tablet) {
+        grid-template-columns: 1fr;
+        gap: $spacing-lg;
+      }
+
+      .inspiracao-text {
+        h3 {
+          color: $color-navy;
+          font-size: 1.75rem;
+          margin-bottom: $spacing-lg;
+        }
+
+        p {
+          color: $color-light-text;
+          margin-bottom: $spacing-md;
+          line-height: 1.8;
+        }
+
+        .processo-list {
+          list-style: none;
+          padding: 0;
+          margin: $spacing-lg 0 0 0;
+
+          li {
+            padding: $spacing-sm 0;
+            padding-left: $spacing-lg;
+            color: $color-navy;
+            position: relative;
+            font-weight: 500;
+
+            &::before {
+              content: '✓';
+              position: absolute;
+              left: 0;
+              color: $color-peach;
+              font-weight: bold;
+              font-size: 1.25rem;
+            }
+          }
+        }
+      }
+
+      .inspiracao-image {
+        img {
+          width: 100%;
+          border-radius: 8px;
+          box-shadow: 0 8px 20px rgba($color-navy, 0.15);
+        }
+      }
+    }
+  }
+}

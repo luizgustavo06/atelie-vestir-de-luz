@@ -1,0 +1,30 @@
+<div class="depoimentos-page">
+  <div class="page-header">
+    <h1>Depoimentos de Clientes</h1>
+    <p>Veja o que nossas clientes dizem sobre seus vestidos</p>
+  </div>
+
+  <div class="container">
+    <div class="testimonials-grid">
+      <div class="testimonial-card" *ngFor="let testimonial of testimonials">
+        <div class="testimonial-header">
+          <img [src]="testimonial.image" [alt]="testimonial.name" class="testimonial-image">
+          <div class="testimonial-info">
+            <h3>{{ testimonial.name }}</h3>
+            <p class="role">{{ testimonial.role }}</p>
+            <div class="stars">
+              <span *ngFor="let star of getStars(testimonial.rating)" class="star">★</span>
+            </div>
+          </div>
+        </div>
+        <p class="testimonial-text">{{ testimonial.text }}</p>
+      </div>
+    </div>
+
+    <section class="cta-section">
+      <h2>Pronto para Criar Seu Vestido?</h2>
+      <p>Junte-se a centenas de clientes satisfeitas que confiaram no Ateliê Vestir de Luz</p>
+      <button class="btn-primary" routerLink="/atendimento" (click)="enviaAtendimento()">Agendar Atendimento</button>
+    </section>
+  </div>
+</div>

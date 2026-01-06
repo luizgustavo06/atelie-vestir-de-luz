@@ -1,0 +1,38 @@
+<header class="header">
+  <div class="container header-content">
+    <div class="logo" (click)="voltaHome()">
+      <img src="assets/logo_atelie_aba.png" alt="Ateliê Vestir de Luz" class="logo-img">
+      <img src="assets/logo_nome.png" alt="Ateliê Vestir de Luz" class="logo-img aumentar">
+    </div>
+
+    <nav class="nav-desktop">
+      <ul class="nav-list">
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+        <li><a routerLink="/catalogo" routerLinkActive="active">Catálogo</a></li>
+        <li><a routerLink="/sobre" routerLinkActive="active">Sobre</a></li>
+        <li><a routerLink="/atendimento" routerLinkActive="active">Atendimento</a></li>
+        <li><a routerLink="/depoimentos" routerLinkActive="active">Depoimentos</a></li>
+        <li><a routerLink="/blog" routerLinkActive="active">Blog</a></li>
+        <li><a routerLink="/contato" routerLinkActive="active">Contato</a></li>
+      </ul>
+    </nav>
+
+    <button class="menu-toggle" (click)="toggleMenu()" [class.active]="isMenuOpen">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+
+  <nav class="nav-mobile" *ngIf="isMenuOpen">
+    <ul class="nav-list-mobile">
+      <li><a routerLink="/" (click)="closeMenu()">Home</a></li>
+      <li><a routerLink="/catalogo" (click)="closeMenu()">Catálogo</a></li>
+      <li><a routerLink="/sobre" (click)="closeMenu()">Sobre</a></li>
+      <li><a routerLink="/atendimento" (click)="closeMenu()">Atendimento</a></li>
+      <li><a routerLink="/depoimentos" (click)="closeMenu()">Depoimentos</a></li>
+      <li><a routerLink="/blog" (click)="closeMenu()">Blog</a></li>
+      <li><a routerLink="/contato" (click)="closeMenu()">Contato</a></li>
+    </ul>
+  </nav>
+</header>

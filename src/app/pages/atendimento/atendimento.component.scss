@@ -1,0 +1,231 @@
+@import '../../../styles.scss';
+
+.atendimento-page {
+  min-height: 100vh;
+  background-color: $color-light;
+
+  .page-header {
+    background: linear-gradient(135deg, $color-navy 0%, darken($color-navy, 5%) 100%);
+    color: $color-white;
+    padding: $spacing-2xl $spacing-md;
+    text-align: center;
+
+    h1 {
+      color: $color-white;
+      font-size: 2.5rem;
+      margin-bottom: $spacing-md;
+
+      @media (max-width: $breakpoint-mobile) {
+        font-size: 1.75rem;
+      }
+    }
+
+    p {
+      color: rgba($color-white, 0.95);
+      font-size: 1.1rem;
+    }
+  }
+
+  .atendimento-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: $spacing-2xl;
+    padding: $spacing-2xl 0;
+
+    @media (max-width: $breakpoint-tablet) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  .form-section {
+    background-color: $color-white;
+    padding: $spacing-2xl;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba($color-navy, 0.1);
+
+    h2 {
+      color: $color-navy;
+      margin-bottom: $spacing-lg;
+      font-size: 1.75rem;
+    }
+
+    .success-message {
+      background-color: rgba($color-peach, 0.1);
+      border-left: 4px solid $color-peach;
+      padding: $spacing-lg;
+      border-radius: 4px;
+      margin-bottom: $spacing-lg;
+
+      p {
+        color: $color-navy;
+        margin: 0;
+        font-weight: 600;
+      }
+    }
+
+    form {
+      .form-group {
+        margin-bottom: $spacing-lg;
+
+        label {
+          display: block;
+          color: $color-navy;
+          font-weight: 600;
+          margin-bottom: $spacing-sm;
+          font-size: 0.95rem;
+        }
+
+        input,
+        select,
+        textarea {
+          width: 100%;
+          padding: $spacing-sm;
+          border: 1px solid rgba($color-navy, 0.2);
+          border-radius: 4px;
+          font-family: $font-family-main;
+          font-size: 0.95rem;
+          color: $color-dark-text;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: $color-peach;
+            box-shadow: 0 0 0 3px rgba($color-peach, 0.1);
+          }
+
+          &::placeholder {
+            color: rgba($color-dark-text, 0.5);
+          }
+        }
+
+        textarea {
+          resize: vertical;
+          font-family: $font-family-main;
+        }
+      }
+
+      button {
+        width: 100%;
+        padding: $spacing-md;
+        background-color: $color-navy;
+        color: $color-white;
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover:not(:disabled) {
+          background-color: darken($color-navy, 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba($color-navy, 0.3);
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+    }
+  }
+
+  .info-section {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+
+    .info-card,
+    .contact-card,
+    .location-card {
+      background-color: $color-white;
+      padding: $spacing-lg;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba($color-navy, 0.1);
+
+      h3 {
+        color: $color-navy;
+        margin-bottom: $spacing-md;
+        font-size: 1.25rem;
+      }
+
+      p {
+        color: $color-light-text;
+        margin-bottom: $spacing-sm;
+      }
+    }
+
+    .info-card {
+      .info-item {
+        margin-bottom: $spacing-lg;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+
+        h4 {
+          color: $color-peach;
+          font-size: 1rem;
+          margin-bottom: $spacing-sm;
+        }
+
+        p {
+          margin: 0;
+          font-size: 0.95rem;
+        }
+      }
+    }
+
+    .contact-card {
+      p {
+        &:not(.contact-info) {
+          margin-bottom: $spacing-md;
+        }
+      }
+
+      .btn-whatsapp {
+        width: 100%;
+        padding: $spacing-md;
+        background-color: #25D366;
+        color: $color-white;
+        border: none;
+        border-radius: 4px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: $spacing-sm;
+        margin-bottom: $spacing-md;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: darken(#25D366, 10%);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(#25D366, 0.3);
+        }
+
+        i {
+          font-size: 1.25rem;
+        }
+      }
+
+      .contact-info {
+        font-size: 0.95rem;
+        margin: $spacing-sm 0;
+      }
+    }
+
+    .location-card {
+      p {
+        &.location-info {
+          font-size: 0.9rem;
+          color: $color-peach;
+          font-weight: 600;
+        }
+      }
+    }
+  }
+}

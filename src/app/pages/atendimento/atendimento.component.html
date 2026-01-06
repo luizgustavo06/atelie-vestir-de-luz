@@ -1,0 +1,126 @@
+<div class="atendimento-page">
+  <div class="page-header">
+    <h1>Atendimento Personalizado</h1>
+    <p>Agende seu atendimento e vamos criar o vestido dos seus sonhos</p>
+  </div>
+
+  <div class="container atendimento-content">
+    <div class="form-section">
+      <h2>Formulário de Agendamento</h2>
+
+      <div class="success-message" *ngIf="submitted">
+        <p>✓ Agendamento realizado com sucesso! Entraremos em contato em breve.</p>
+      </div>
+
+      <div class="error-message" *ngIf="errorMessage" style="color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 10px; margin-bottom: 15px; border-radius: 4px;">
+        <p>{{ errorMessage }}</p>
+      </div>
+
+      <form (ngSubmit)="onSubmit()" *ngIf="!submitted">
+        <div class="form-group">
+          <label for="name">Nome Completo *</label>
+          <input 
+            type="text" 
+            id="name" 
+            [(ngModel)]="formData.name" 
+            name="name"
+            placeholder="Seu nome"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input 
+            type="email" 
+            id="email" 
+            [(ngModel)]="formData.email" 
+            name="email"
+            placeholder="seu@email.com"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Telefone/WhatsApp *</label>
+          <input 
+            type="tel" 
+            id="phone" 
+            [(ngModel)]="formData.phone" 
+            name="phone"
+            placeholder="(85) 98765-4321"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="occasion">Ocasião *</label>
+          <select 
+            id="occasion" 
+            [(ngModel)]="formData.occasion" 
+            name="occasion"
+            required>
+            <option value="">Selecione uma ocasião</option>
+            <option *ngFor="let occasion of occasions" [value]="occasion">{{ occasion }}</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Data Desejada *</label>
+          <input 
+            type="date" 
+            id="date" 
+            [(ngModel)]="formData.date" 
+            name="date"
+            required>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Mensagem / Observações</label>
+          <textarea 
+            id="message" 
+            [(ngModel)]="formData.message" 
+            name="message"
+            placeholder="Conte-nos mais sobre seu vestido ideal..."
+            rows="5"></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" [disabled]="!isFormValid() || isLoading">
+          <span *ngIf="isLoading">Enviando...</span>
+          <span *ngIf="!isLoading">Agendar Atendimento</span>
+        </button>
+      </form>
+    </div>
+
+    <aside class="info-section">
+      <div class="info-card">
+        <h3>Informações Importantes</h3>
+        <div class="info-item">
+          <h4>Prova e Ajustes</h4>
+          <p>Incluímos uma prova completa e ajustes finais para garantir o ajuste perfeito.</p>
+        </div>
+        <div class="info-item">
+          <h4>Prazos</h4>
+          <p>Os prazos variam de 30 a 90 dias, dependendo da complexidade do design.</p>
+        </div>
+        <div class="info-item">
+          <h4>Formas de Pagamento</h4>
+          <p>Aceitamos dinheiro, cartão de crédito e parcelamento em até 12x.</p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <h3>Contato Direto</h3>
+        <p>Prefere falar conosco diretamente?</p>
+        <button class="btn-whatsapp" (click)="openWhatsApp()">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </button>
+        <p class="contact-info">📞(11) 99652-0776</p>
+        <p class="contact-info">📧 contato&#64;atelievelstirdeluz.com</p>
+      </div>
+
+      <div class="location-card">
+        <h3>Localização</h3>
+        <p>Fortaleza, Ceará</p>
+        <p class="location-info">Atendimento presencial e virtual disponível</p>
+      </div>
+    </aside>
+  </div>
+</div>

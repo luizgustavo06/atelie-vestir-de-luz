@@ -1,0 +1,130 @@
+@import '../../styles.scss';
+
+.footer {
+  background-color: $color-navy;
+  color: $color-white;
+  padding: $spacing-2xl $spacing-md;
+  margin-top: $spacing-2xl;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: $spacing-2xl;
+    margin-bottom: $spacing-2xl;
+
+    @media (max-width: $breakpoint-mobile) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  .footer-section {
+    h4 {
+      color: $color-yellow;
+      margin-bottom: $spacing-md;
+      font-size: 1.25rem;
+    }
+
+    p {
+      color: rgba($color-white, 0.9);
+      margin-bottom: $spacing-sm;
+      font-size: 0.95rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+
+      li {
+        margin-bottom: $spacing-sm;
+
+        a {
+          color: rgba($color-white, 0.9);
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: $color-yellow;
+          }
+        }
+      }
+    }
+
+    .social-links {
+      display: flex;
+      gap: $spacing-md;
+      margin-top: $spacing-md;
+
+      a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba($color-white, 0.1);
+        border-radius: 50%;
+        color: $color-white;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: $color-peach;
+          color: $color-navy;
+          transform: translateY(-3px);
+        }
+
+        i {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    .newsletter-form {
+      display: flex;
+      gap: $spacing-sm;
+      margin-top: $spacing-md;
+
+      input {
+        flex: 1;
+        padding: $spacing-sm;
+        border: none;
+        border-radius: 4px;
+        font-size: 0.95rem;
+
+        &::placeholder {
+          color: rgba($color-dark-text, 0.5);
+        }
+      }
+
+      button {
+        padding: $spacing-sm $spacing-md;
+        background-color: $color-peach;
+        color: $color-navy;
+        font-weight: 600;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+
+        &:hover {
+          background-color: $color-yellow;
+          transform: translateY(-2px);
+        }
+      }
+    }
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba($color-white, 0.1);
+    padding-top: $spacing-lg;
+    text-align: center;
+
+    p {
+      color: rgba($color-white, 0.7);
+      font-size: 0.9rem;
+      margin: 0;
+    }
+  }
+}
