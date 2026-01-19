@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 export class ContatoComponent {
   contactInfo = {
     phone: '(11)99652-0776',
-    email: 'contato@atelievelstirdeluz.com',
+    email: 'atelievestirdeluz@gmail.com.br',
     address: 'Itapevi,SP',
     hours: 'Segunda a Sábado: 10h às 18h'
   };

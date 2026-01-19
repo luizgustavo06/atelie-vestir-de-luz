@@ -27,7 +27,7 @@ export class CatalogoComponent {
     {
       id: 1,
       name: 'Noiva Clássica',
-      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=400&h=500&fit=crop',
+      image: 'assets/vestidos/noiva-estilo.png',
       color: 'Branco',
       occasion: 'Casamento',
       size: 'P-GG',
@@ -36,66 +36,6 @@ export class CatalogoComponent {
       description: 'Vestido de noiva elegante com detalhes em renda.',
       price: 'Sob Consulta'
     },
-    {
-      id: 2,
-      name: 'Madrinha Sofisticada',
-      image: 'https://images.unsplash.com/photo-1595777707802-41d339d29c91?w=400&h=500&fit=crop',
-      color: 'Rosa',
-      occasion: 'Casamento',
-      size: 'P-GG',
-      style: 'Moderno',
-      material: 'Crepe',
-      description: 'Vestido de madrinha em tons rosados com corte moderno.',
-      price: 'Sob Consulta'
-    },
-    {
-      id: 3,
-      name: 'Formanda Elegante',
-      image: 'https://images.unsplash.com/photo-1612336307429-8a88e8d08dbb?w=400&h=500&fit=crop',
-      color: 'Azul Marinho',
-      occasion: 'Formatura',
-      size: 'P-GG',
-      style: 'Elegante',
-      material: 'Cetim',
-      description: 'Vestido de formatura com acabamento impecável.',
-      price: 'Sob Consulta'
-    },
-    {
-      id: 4,
-      name: 'Festa Glamourosa',
-      image: 'https://images.unsplash.com/photo-1539008588435-666cafdc613d?w=400&h=500&fit=crop',
-      color: 'Dourado',
-      occasion: 'Festa',
-      size: 'P-GG',
-      style: 'Glamour',
-      material: 'Tule Brilhante',
-      description: 'Vestido de festa com brilho e elegância.',
-      price: 'Sob Consulta'
-    },
-    {
-      id: 5,
-      name: 'Daminha Princesa',
-      image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=500&fit=crop',
-      color: 'Rosa Claro',
-      occasion: 'Casamento',
-      size: 'P-M',
-      style: 'Infantil',
-      material: 'Tule',
-      description: 'Vestido de daminha com design delicado e encantador.',
-      price: 'Sob Consulta'
-    },
-    {
-      id: 6,
-      name: 'Noiva Moderna',
-      image: 'https://images.unsplash.com/photo-1566150905458-1bf1fc113f0d?w=400&h=500&fit=crop',
-      color: 'Branco',
-      occasion: 'Casamento',
-      size: 'P-GG',
-      style: 'Moderno',
-      material: 'Crepe',
-      description: 'Vestido de noiva com corte moderno e sofisticado.',
-      price: 'Sob Consulta'
-    }
   ];
 
   filteredDresses: Dress[] = [];

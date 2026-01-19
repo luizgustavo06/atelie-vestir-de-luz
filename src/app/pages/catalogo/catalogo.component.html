@@ -3,10 +3,10 @@
       <h1>Nosso Catálogo</h1>
       <p>Conheça nossas coleções exclusivas de vestidos personalizados</p>
   </div>
+  
   <div class="container catalogo-content">
     <aside class="filters-sidebar">
       <h3>Filtros</h3>
-
       <div class="filter-group">
         <label for="color">Cor</label>
         <select id="color" [(ngModel)]="selectedColor" (change)="onFilterChange()">
@@ -44,11 +44,13 @@
 
     <main class="dresses-grid">
       <div class="dress-card" *ngFor="let dress of filteredDresses">
-        <div class="dress-image" [style.backgroundImage]="'url(' + dress.image + ')'">
-          <div class="dress-overlay">
-            <button class="btn-details">Ver Detalhes</button>
-          </div>
+        
+        <img [src]="dress.image" [alt]="dress.name" class="dress-image">
+
+        <div class="dress-overlay">
+           <button class="btn-details">Ver Detalhes</button>
         </div>
+
         <div class="dress-info">
           <h3>{{ dress.name }}</h3>
           <p class="dress-material">{{ dress.material }}</p>

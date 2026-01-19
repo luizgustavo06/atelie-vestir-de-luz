@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { CarouselComponent } from '../../components/carousel.component';
+import { CarouselComponent } from '../../components/carousel/carousel.component';
 
 @Component({
   selector: 'app-home',
