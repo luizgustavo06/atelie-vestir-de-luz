@@ -11,7 +11,13 @@ import { HttpClient } from '@angular/common/http';
   styleUrl: './atendimento.component.scss'
 })
 export class AtendimentoComponent {
-  
+
+  contactInfo = {
+    phone: '(11)99652-0776',
+    email: 'atelievestirdeluz@gmail.com.br',
+    address: 'Itapevi,SP',
+    hours: 'Segunda a Sábado: 10h às 18h'
+  };  
   // Dados do formulário
   formData = {
     name: '',

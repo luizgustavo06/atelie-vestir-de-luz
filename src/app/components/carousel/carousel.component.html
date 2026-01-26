@@ -4,19 +4,21 @@
       <div class="slide" *ngFor="let slide of slides; let i = index" 
            [class.active]="i === currentSlide"
            [style.backgroundImage]="'url(' + slide.image + ')'">
+        
         <div class="slide-overlay"></div>
+        
         <div class="slide-content">
           <h2 class="slide-title">{{ slide.title }}</h2>
           <p class="slide-description">{{ slide.description }}</p>
-          <button class="btn-primary" routerLink="/catalogo">Explorar Coleção</button>
+          <button class="btn-primary" (click)="redireciona($event)">Explorar Coleção</button>
         </div>
       </div>
     </div>
 
-    <button class="carousel-btn prev" (click)="prevSlide()" aria-label="Slide anterior">
+    <button class="carousel-btn prev" (click)="prevSlide()" aria-label="Anterior">
       &#10094;
     </button>
-    <button class="carousel-btn next" (click)="nextSlide()" aria-label="Próximo slide">
+    <button class="carousel-btn next" (click)="nextSlide()" aria-label="Próximo">
       &#10095;
     </button>
   </div>
@@ -25,8 +27,7 @@
     <button *ngFor="let slide of slides; let i = index"
             class="indicator"
             [class.active]="i === currentSlide"
-            (click)="goToSlide(i)"
-            [attr.aria-label]="'Ir para slide ' + (i + 1)">
+            (click)="goToSlide(i)">
     </button>
   </div>
 </div>

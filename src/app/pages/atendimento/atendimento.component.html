@@ -112,8 +112,8 @@
         <button class="btn-whatsapp" (click)="openWhatsApp()">
           <i class="fab fa-whatsapp"></i> WhatsApp
         </button>
-        <p class="contact-info">📞(11) 99652-0776</p>
-        <p class="contact-info">📧 contato&#64;atelievelstirdeluz.com</p>
+        <p class="contact-info">📞{{ contactInfo.phone }}</p>
+        <p class="contact-info">{{ contactInfo.email }}</p>
       </div>
 
       <div class="location-card">
