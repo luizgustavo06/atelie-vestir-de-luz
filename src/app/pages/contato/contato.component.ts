@@ -12,7 +12,7 @@ export class ContatoComponent {
   contactInfo = {
     phone: '(11)99652-0776',
     email: 'atelievestirdeluz@gmail.com.br',
-    address: 'Itapevi,SP',
+    address: 'Jandira/SP proximo ao cemiterio Alpha Campus',
     hours: 'Segunda a Sábado: 10h às 18h'
   };
 
@@ -25,5 +25,9 @@ export class ContatoComponent {
 
   sendEmail(): void {
     window.location.href = `mailto:${this.contactInfo.email}`;
+  }
+
+  redirecionaAtendimento(event: any): void {
+    window.location.href = '/atendimento';
   }
 }

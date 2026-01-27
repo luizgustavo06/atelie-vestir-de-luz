@@ -1,7 +1,10 @@
 @import '../../../styles.scss';
 
 .footer {
+  // Adicionei um fallback caso a variável falhe
+  background-color: #2c3e50; 
   background-color: $color-navy;
+  
   color: $color-white;
   padding: $spacing-2xl $spacing-md;
   margin-top: $spacing-2xl;
@@ -9,6 +12,7 @@
   .container {
     max-width: 1200px;
     margin: 0 auto;
+    padding: 0 15px; // Garante margem em telas pequenas
   }
 
   .footer-content {
@@ -17,9 +21,10 @@
     gap: $spacing-2xl;
     margin-bottom: $spacing-2xl;
 
-    @media (max-width: $breakpoint-mobile) {
+    @media (max-width: 768px) { // Usei px fixo caso a variável breakpoint falhe
       grid-template-columns: 1fr;
       gap: $spacing-lg;
+      text-align: center; // Centraliza tudo no mobile (opcional, fica bonito)
     }
   }
 
@@ -28,56 +33,73 @@
       color: $color-yellow;
       margin-bottom: $spacing-md;
       font-size: 1.25rem;
+      font-weight: bold;
     }
 
     p {
       color: rgba($color-white, 0.9);
       margin-bottom: $spacing-sm;
       font-size: 0.95rem;
+      line-height: 1.5;
     }
 
     ul {
       list-style: none;
       padding: 0;
+      margin: 0;
 
       li {
         margin-bottom: $spacing-sm;
 
         a {
           color: rgba($color-white, 0.9);
+          text-decoration: none; // Remove sublinhado dos links do menu
           transition: color 0.3s ease;
 
           &:hover {
             color: $color-yellow;
+            padding-left: 5px; // Efeitinho de deslizar para a direita
           }
         }
       }
     }
 
+    // --- AQUI ESTÁ A CORREÇÃO DOS ÍCONES ---
     .social-links {
       display: flex;
       gap: $spacing-md;
       margin-top: $spacing-md;
+      
+      // Se tiver no mobile, centraliza os ícones
+      @media (max-width: 768px) {
+        justify-content: center;
+      }
 
       a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
+        display: flex;             // Garante a caixa flexível
+        align-items: center;       // Centraliza vertical
+        justify-content: center;   // Centraliza horizontal
         width: 40px;
         height: 40px;
+        
+        background-color: rgba(255, 255, 255, 0.1); // Fallback
         background-color: rgba($color-white, 0.1);
+        
         border-radius: 50%;
         color: $color-white;
+        text-decoration: none;     // Vital para remover sublinhado
         transition: all 0.3s ease;
 
         &:hover {
           background-color: $color-peach;
           color: $color-navy;
           transform: translateY(-3px);
+          box-shadow: 0 4px 8px rgba(0,0,0,0.2); // Sombra suave no hover
         }
 
         i {
           font-size: 1.25rem;
+          line-height: 1; // Remove espaçamento extra da fonte
         }
       }
     }
@@ -93,9 +115,14 @@
         border: none;
         border-radius: 4px;
         font-size: 0.95rem;
+        outline: none; // Remove borda azul padrão do navegador
 
         &::placeholder {
-          color: rgba($color-dark-text, 0.5);
+          color: rgba(0, 0, 0, 0.5);
+        }
+        
+        &:focus {
+            box-shadow: 0 0 0 2px $color-yellow; // Foco acessível
         }
       }
 
@@ -104,6 +131,7 @@
         background-color: $color-peach;
         color: $color-navy;
         font-weight: 600;
+        border: none; // Garante sem borda
         border-radius: 4px;
         cursor: pointer;
         transition: all 0.3s ease;

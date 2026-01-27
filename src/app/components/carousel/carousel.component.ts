@@ -20,11 +20,11 @@ export class CarouselComponent implements OnInit, OnDestroy {
       title: 'Elegância e Sofisticação',
       description: 'Vestidos personalizados para seus momentos especiais'
     },
-    {
-      image: 'assets/vestidos/vestido-vermelho.png',
-      title: 'Coleção Exclusiva',
-      description: 'Designs únicos feitos especialmente para você'
-    },
+    // {
+    //   image: 'assets/vestidos/vestido-vermelho.png',
+    //   title: 'Coleção Exclusiva',
+    //   description: 'Designs únicos feitos especialmente para você'
+    // },
     {
       image: 'assets/vestidos/banner-qualidade-premium.png',
       title: 'Qualidade Premium',

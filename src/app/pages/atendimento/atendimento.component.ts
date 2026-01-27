@@ -96,4 +96,8 @@ export class AtendimentoComponent {
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   }
+  enviaAgendamento(e: any){
+    
+
+  }
 }

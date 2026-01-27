@@ -82,7 +82,7 @@
             rows="5"></textarea>
         </div>
 
-        <button type="submit" class="btn-primary" [disabled]="!isFormValid() || isLoading">
+        <button type="submit" class="btn-primary" [disabled]="!isFormValid() || isLoading" (click)="enviaAgendamento($event)">
           <span *ngIf="isLoading">Enviando...</span>
           <span *ngIf="!isLoading">Agendar Atendimento</span>
         </button>
@@ -108,18 +108,21 @@
 
       <div class="contact-card">
         <h3>Contato Direto</h3>
-        <p>Prefere falar conosco diretamente?</p>
+        <p>Prefere falar conosco diretamente? Mande uma mensagem:</p>
         <button class="btn-whatsapp" (click)="openWhatsApp()">
           <i class="fab fa-whatsapp"></i> WhatsApp
         </button>
+        <p>Ou então ligue:</p>
         <p class="contact-info">📞{{ contactInfo.phone }}</p>
+        <p>Caso queira nos mandar um email:</p>
         <p class="contact-info">{{ contactInfo.email }}</p>
       </div>
 
       <div class="location-card">
         <h3>Localização</h3>
-        <p>Fortaleza, Ceará</p>
-        <p class="location-info">Atendimento presencial e virtual disponível</p>
+        <p>Jandira/SP proximo ao cemiterio Alpha Campus</p>
+        <p >Atendimento presencial ou a domicílio</p>
+        <p class="card-description"><strong>Endereço completo será enviado via WhatsApp.</strong></p>
       </div>
     </aside>
   </div>
