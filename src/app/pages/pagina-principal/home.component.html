@@ -1,6 +1,7 @@
 <div class="container-home">
   <app-carousel></app-carousel>
 </div>
+
 <div class="container-home-conteudo">
   <section class="highlight-section">
     <div class="container">
@@ -12,13 +13,14 @@
     </div>
   </section>
 
-  <!-- Seção de Diferenciais -->
   <section class="features-section">
     <div class="container">
       <h2>Por Que Nos Escolher</h2>
       <div class="features-grid">
         <div class="feature-card" *ngFor="let feature of features">
-          <div class="feature-icon">{{ feature.icon }}</div>
+          <div class="feature-icon">
+            <i [class]="feature.icon"></i>
+          </div>
           <h3>{{ feature.title }}</h3>
           <p>{{ feature.description }}</p>
         </div>
@@ -26,8 +28,6 @@
     </div>
   </section>
   
-
-  <!-- Seção de Coleções -->
   <section class="collections-section">
     <div class="container">
       <h2>Nossas Coleções</h2>
@@ -50,7 +50,6 @@
     </div>
   </section>
 
-  <!-- Seção de CTA -->
   <section class="cta-section">
     <div class="container">
       <h2>Pronto para Criar Seu Vestido?</h2>

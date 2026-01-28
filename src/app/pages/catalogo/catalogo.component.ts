@@ -1,29 +1,21 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-
-interface Dress {
-  id: number;
-  name: string;
-  image: string;
-  color: string;
-  occasion: string;
-  size: string;
-  style: string;
-  material: string;
-  description: string;
-  price: string;
-}
+import { DetalhesComponent } from '../../components/detalhes/detalhes.component';
 
 @Component({
   selector: 'app-catalogo',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, DetalhesComponent],
   templateUrl: './catalogo.component.html',
   styleUrl: './catalogo.component.scss'
 })
-export class CatalogoComponent {
-  dresses: Dress[] = [
+export class CatalogoComponent implements OnInit {
+  selectedDress: any = null;
+  isLoading: boolean = true;
+
+  // Lista de vestidos baseada nos seus arquivos reais
+  dresses: any[] = [
     {
       id: 1,
       name: 'Noiva Clássica',
@@ -33,26 +25,52 @@ export class CatalogoComponent {
       size: 'P-GG',
       style: 'Clássico',
       material: 'Tule e Cetim',
-      description: 'Vestido de noiva elegante com detalhes em renda.',
+      description: 'Vestido de noiva elegante com detalhes em renda e acabamento artesanal.',
       price: 'Sob Consulta'
     },
+    {
+      id: 2,
+      name: 'Serenata Azul',
+      image: 'assets/vestidos/teste-azul.png',
+      color: 'Azul Marinho',
+      occasion: 'Festa',
+      size: 'M',
+      style: 'Elegante',
+      material: 'Seda Italiana',
+      description: 'Vestido longo azul profundo para eventos noturnos e galas.',
+      price: 'Sob Consulta'
+    },
+    {
+      id: 3,
+      name: 'Paixão Carmesim',
+      image: 'assets/vestidos/vestido-vermelho.png',
+      color: 'Vermelho',
+      occasion: 'Formatura',
+      size: 'G',
+      style: 'Glamour',
+      material: 'Zibeline',
+      description: 'Design impactante e moderno para noites inesquecíveis.',
+      price: 'Sob Consulta'
+    }
   ];
 
-  filteredDresses: Dress[] = [];
-
-  // Filtros
+  filteredDresses: any[] = [];
   selectedColor: string = '';
   selectedOccasion: string = '';
   selectedSize: string = '';
   selectedStyle: string = '';
 
-  colors = ['Branco', 'Rosa', 'Azul Marinho', 'Dourado', 'Rosa Claro'];
+  colors = ['Branco', 'Rosa', 'Azul Marinho', 'Vermelho', 'Dourado'];
   occasions = ['Casamento', 'Formatura', 'Festa'];
-  sizes = ['P', 'M', 'G', 'GG', 'P-GG'];
-  styles = ['Clássico', 'Moderno', 'Elegante', 'Glamour', 'Infantil'];
+  sizes = ['P', 'M', 'G', 'GG'];
+  styles = ['Clássico', 'Moderno', 'Elegante', 'Glamour'];
 
   ngOnInit(): void {
-    this.applyFilters();
+    // Simula carregamento de 1.5s para exibir o Skeleton Screen
+    setTimeout(() => {
+      this.applyFilters();
+      this.isLoading = false;
+    }, 1500);
   }
 
   applyFilters(): void {
@@ -76,8 +94,5 @@ export class CatalogoComponent {
     this.selectedSize = '';
     this.selectedStyle = '';
     this.applyFilters();
-  }
-  solicitaOrcamento(){
-    window.location.href = '/atendimento';
   }
 }

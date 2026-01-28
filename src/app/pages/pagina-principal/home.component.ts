@@ -6,29 +6,29 @@ import { CarouselComponent } from '../../components/carousel/carousel.component'
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule,CarouselComponent ],
+  imports: [CommonModule, RouterModule, CarouselComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
   features = [
     {
-      icon: '✨',
+      icon: 'fa-solid fa-wand-magic-sparkles', 
       title: 'Atendimento Personalizado',
       description: 'Cada cliente é único. Criamos vestidos sob medida para você.'
     },
     {
-      icon: '🧵',
+      icon: 'fa-solid fa-gem', 
       title: 'Tecidos Nobres',
       description: 'Utilizamos os melhores tecidos importados e nacionais.'
     },
     {
-      icon: '👗',
+      icon: 'fa-solid fa-pen-ruler', 
       title: 'Design Exclusivo',
       description: 'Designs originais criados especialmente para você.'
     },
     {
-      icon: '⏱️',
+      icon: 'fa-solid fa-clock',
       title: 'Prazo Garantido',
       description: 'Entrega dentro do prazo combinado com qualidade.'
     }

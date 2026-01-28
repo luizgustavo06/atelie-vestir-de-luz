@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common'
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
@@ -7,18 +7,19 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-atendimento',
   standalone: true,
   imports: [CommonModule, FormsModule],
+  providers: [DatePipe],
   templateUrl: './atendimento.component.html',
   styleUrl: './atendimento.component.scss'
 })
 export class AtendimentoComponent {
 
   contactInfo = {
-    phone: '(11)99652-0776',
+    phone: '(11) 99652-0776',
     email: 'atelievestirdeluz@gmail.com.br',
-    address: 'Itapevi,SP',
+    address: 'Itapevi, SP',
     hours: 'Segunda a Sábado: 10h às 18h'
-  };  
-  // Dados do formulário
+  };
+
   formData = {
     name: '',
     email: '',
@@ -37,35 +38,59 @@ export class AtendimentoComponent {
     'Outro'
   ];
 
-  isLoading = false;      
-  submitted = false;      
-  errorMessage = '';     
+  isLoading = false;
+  submitted = false;
+  errorMessage = '';
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private datePipe: DatePipe 
+  ) {}
 
   onSubmit(): void {
     if (this.isFormValid()) {
       this.isLoading = true;
       this.errorMessage = '';
 
-      const apiUrl = 'http://atelievestirdeluz/send-email';
+      this.enviarParaWhatsApp();
+
+      const apiUrl = 'http://atelievestirdeluz/send-email'; 
 
       this.http.post(apiUrl, this.formData).subscribe({
         next: (response) => {
-          console.log('Sucesso:', response);
-          this.isLoading = false;
-          this.submitted = true;
-          setTimeout(() => {
-            this.resetForm();
-          }, 5000);
+          console.log('Email enviado com sucesso:', response);
+          this.finalizarEnvio();
         },
         error: (error) => {
-          console.error('Erro:', error);
-          this.isLoading = false;
-          this.errorMessage = 'Houve um erro ao enviar sua solicitação. Tente novamente mais tarde ou chame no WhatsApp.';
+          console.error('Erro no envio de email:', error);
+          this.finalizarEnvio(); 
         }
       });
     }
+  }
+
+  enviarParaWhatsApp(): void {
+    const numeroDestino = '5511996520776';
+    const dataFormatada = this.datePipe.transform(this.formData.date, 'dd/MM/yyyy');
+
+    const texto = `*Olá! Gostaria de realizar um agendamento.*%0A%0A` +
+                  `*Nome:* ${this.formData.name}%0A` +
+                  `*Email:* ${this.formData.email}%0A` +
+                  `*Telefone:* ${this.formData.phone}%0A` +
+                  `*Ocasião:* ${this.formData.occasion}%0A` +
+                  `*Data:* ${dataFormatada}%0A` + 
+                  `*Mensagem:* ${this.formData.message || 'Sem observações'}`;
+
+    const url = `https://wa.me/${numeroDestino}?text=${texto}`;
+    window.open(url, '_blank');
+  }
+
+  finalizarEnvio(): void {
+    this.isLoading = false;
+    this.submitted = true;
+    setTimeout(() => {
+      this.resetForm();
+    }, 5000);
   }
 
   isFormValid(): boolean {
@@ -92,12 +117,8 @@ export class AtendimentoComponent {
 
   openWhatsApp(): void {
     const phone = '5511996520776';
-    const message = 'Olá! Gostaria de agendar um atendimento personalizado para criar meu produto.';
+    const message = 'Olá! Gostaria de tirar uma dúvida sobre o ateliê.';
     const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
-  }
-  enviaAgendamento(e: any){
-    
-
   }
 }

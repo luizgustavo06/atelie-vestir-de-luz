@@ -1,0 +1,45 @@
+<div class="modal-backdrop" (click)="fechar()">
+  
+  <div class="modal-wrapper" (click)="stopProp($event)">
+    
+    <button class="close-button" (click)="fechar()" aria-label="Fechar">
+      &times;
+    </button>
+
+    <div class="image-gallery">
+      <img [src]="dress.image" [alt]="dress.name">
+    </div>
+
+    <div class="content-details">
+      <div class="header-info">
+        <span class="tag-material">{{ dress.material }}</span>
+        <h2>{{ dress.name }}</h2>
+      </div>
+
+      <p class="desc">{{ dress.description }}</p>
+
+      <div class="info-grid">
+        <div class="item">
+          <label>Cor</label>
+          <p>{{ dress.color }}</p>
+        </div>
+        <div class="item">
+          <label>Estilo</label>
+          <p>{{ dress.style }}</p>
+        </div>
+        <div class="item">
+          <label>Tamanhos</label>
+          <p>{{ dress.size }}</p>
+        </div>
+        <div class="item">
+          <label>Ocasião</label>
+          <p>{{ dress.occasion }}</p>
+        </div>
+      </div>
+
+      <a [href]="whatsappLink" target="_blank" class="btn-quote">
+        Solicitar Orçamento no WhatsApp
+      </a>
+    </div>
+  </div>
+</div>

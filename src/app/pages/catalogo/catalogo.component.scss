@@ -1,269 +1,280 @@
-@import '../../../styles.scss';
+@import "../../../styles.scss";
 
 .catalogo-page {
   min-height: 100vh;
-  background-color: $color-light;
+  background-color: #fdfdfd; // Um branco levemente "off" para ser mais chic
   padding-bottom: $spacing-2xl;
 
   .page-header {
-    background: linear-gradient(135deg, $color-navy 0%, darken($color-navy, 5%) 100%);
+    background:
+      linear-gradient(rgba($color-navy, 0.9), rgba($color-navy, 1)),
+      url("/assets/pattern-luxo.png"); // Se tiver um padrão de fundo, fica lindo
     color: $color-white;
-    padding: $spacing-sm 0;
+    padding: $spacing-2xl 0;
     text-align: center;
+    border-bottom: 3px solid $color-peach;
 
     h1 {
-      color: $color-white;
-      font-size: 2.5rem;
-      margin-bottom: $spacing-md;
-
-      @media (max-width: $breakpoint-mobile) {
-        font-size: 1.75rem;
-      }
+      font-family: "Playfair Display", serif; // Sugestão de fonte para luxo
+      font-size: 3rem;
+      margin-bottom: $spacing-xs;
+      letter-spacing: 2px;
     }
 
     p {
-      color: rgba($color-white, 0.95);
-      font-size: 1.1rem;
+      font-weight: 300;
+      letter-spacing: 1px;
+      opacity: 0.8;
     }
   }
 
   .catalogo-content {
     display: grid;
-    grid-template-columns: 250px 1fr;
+    grid-template-columns: 280px 1fr;
     gap: $spacing-2xl;
     margin-top: $spacing-2xl;
 
     @media (max-width: $breakpoint-tablet) {
       grid-template-columns: 1fr;
-      gap: $spacing-lg;
     }
   }
 
   .filters-sidebar {
     background-color: $color-white;
-    padding: $spacing-lg;
-    border-radius: 8px;
+    padding: $spacing-xl;
+    border-radius: 12px;
     height: fit-content;
-    box-shadow: 0 2px 8px rgba($color-navy, 0.1);
+    border: 1px solid rgba($color-navy, 0.05);
+    position: sticky;
+    top: 20px;
 
     h3 {
+      font-family: "Playfair Display", serif;
       color: $color-navy;
-      margin-bottom: $spacing-lg;
-      font-size: 1.25rem;
+      border-bottom: 1px solid $color-peach;
+      padding-bottom: $spacing-sm;
+      margin-bottom: $spacing-xl;
     }
 
     .filter-group {
       margin-bottom: $spacing-lg;
 
       label {
-        display: block;
         color: $color-navy;
-        font-weight: 600;
-        margin-bottom: $spacing-sm;
-        font-size: 0.95rem;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-bottom: 8px;
+        display: block;
       }
 
       select {
         width: 100%;
-        padding: $spacing-sm;
-        border: 1px solid rgba($color-navy, 0.2);
-        border-radius: 4px;
-        background-color: $color-white;
-        color: $color-dark-text;
-        font-size: 0.95rem;
-        cursor: pointer;
-        transition: border-color 0.3s ease;
+        padding: 12px;
+        border: 1px solid #eee;
+        border-radius: 8px;
+        font-family: inherit;
+        color: $color-navy;
+        appearance: none; // Remove seta padrão
+        background: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E")
+          no-repeat right 10px center;
+        background-size: 15px;
 
         &:focus {
-          outline: none;
           border-color: $color-peach;
-          box-shadow: 0 0 0 3px rgba($color-peach, 0.1);
+          outline: none;
         }
       }
     }
 
     .btn-reset {
       width: 100%;
-      padding: $spacing-sm;
-      background-color: $color-peach;
+      background: transparent;
       color: $color-navy;
-      border: none;
-      border-radius: 4px;
-      font-weight: 600;
+      border: 1px solid $color-navy;
+      padding: 10px;
+      border-radius: 8px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      transition: all 0.3s;
+      font-size: 0.9rem;
 
       &:hover {
-        background-color: $color-yellow;
-        transform: translateY(-2px);
+        background-color: $color-navy;
+        color: white;
       }
     }
   }
 
   .dresses-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: $spacing-2xl;
-
-    @media (max-width: $breakpoint-mobile) {
-      grid-template-columns: 1fr;
-      gap: $spacing-lg;
-    }
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: $spacing-xl;
 
     .dress-card {
-      background-color: $color-white;
-      border-radius: 8px;
+      background: white;
+      border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 2px 8px rgba($color-navy, 0.1);
-      transition: all 0.3s ease;
-      
-      // MUDANÇA 1: Adicionado position relative aqui para o overlay se orientar pelo card
-      position: relative; 
+      position: relative;
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      border: 1px solid rgba(0, 0, 0, 0.03);
 
       &:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 20px rgba($color-navy, 0.2);
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 
+        .image-container img {
+          transform: scale(1.1);
+        }
         .dress-overlay {
           opacity: 1;
         }
       }
 
-      .dress-image {
-        display: block; 
-        width: 100%;
-        height: auto; 
-        
-        object-fit: contain; 
-        
-        object-position: center; // Centraliza a imagem
-        background-color: #f8f8f8; // Fundo suave para preencher laterais vazias se houver
+      .image-container {
+        height: 400px;
+        overflow: hidden;
+        position: relative;
+        background-color: #f9f9f9;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.6s;
+        }
+
+        .material-tag {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: rgba(white, 0.9);
+          padding: 5px 12px;
+          border-radius: 20px;
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: $color-navy;
+          z-index: 1;
+        }
       }
 
-      // MUDANÇA 3: Overlay agora é posicionado absolutamente sobre a imagem
       .dress-overlay {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 350px; // Mesma altura da imagem para cobrir apenas ela
-        background-color: rgba($color-navy, 0.7);
+        inset: 0;
+        background: rgba($color-navy, 0.4);
         display: flex;
         align-items: center;
         justify-content: center;
         opacity: 0;
-        transition: opacity 0.3s ease;
-        // z-index: 2; // Opcional: Garante que fique acima da imagem
+        transition: 0.3s;
+        height: 400px;
 
         .btn-details {
-          background-color: $color-peach;
+          background: white;
           color: $color-navy;
           border: none;
-          padding: $spacing-sm $spacing-lg;
-          border-radius: 4px;
+          padding: 12px 25px;
+          border-radius: 50px;
           font-weight: 600;
           cursor: pointer;
-          transition: all 0.3s ease;
-
-          &:hover {
-            background-color: $color-yellow;
-            transform: scale(1.05);
-          }
         }
       }
 
       .dress-info {
         padding: $spacing-lg;
+        text-align: center;
 
         h3 {
+          font-family: "Playfair Display", serif;
+          font-size: 1.4rem;
           color: $color-navy;
-          margin-bottom: $spacing-sm;
-          font-size: 1.25rem;
-        }
-
-        .dress-material {
-          color: $color-peach;
-          font-weight: 600;
-          font-size: 0.9rem;
-          margin-bottom: $spacing-sm;
+          margin-bottom: 5px;
         }
 
         .dress-specs {
           display: flex;
-          gap: $spacing-sm;
-          margin-bottom: $spacing-md;
+          justify-content: center;
+          gap: 10px;
+          margin-bottom: 15px;
 
           .spec {
-            background-color: $color-light;
-            color: $color-navy;
-            padding: 4px 8px;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.8rem;
+            color: #888;
+            &::after {
+              content: " •";
+              margin-left: 10px;
+            }
+            &:last-child::after {
+              content: "";
+            }
           }
         }
 
-        .dress-description {
-          color: $color-light-text;
-          font-size: 0.95rem;
-          margin-bottom: $spacing-md;
-          line-height: 1.5;
-        }
-
         .dress-price {
-          color: $color-navy;
-          font-weight: 600;
-          font-size: 1.1rem;
+          font-size: 1.2rem;
+          color: $color-peach;
+          font-weight: 700;
           margin-bottom: $spacing-md;
         }
 
-        button.btn-primary { // Específico para o botão de orçamento
+        .btn-primary {
           width: 100%;
-          padding: $spacing-sm;
-          background-color: $color-navy;
-          color: $color-white;
+          background: $color-navy;
+          color: white;
           border: none;
-          border-radius: 4px;
+          padding: 14px;
+          border-radius: 10px;
           font-weight: 600;
+          letter-spacing: 1px;
           cursor: pointer;
-          transition: all 0.3s ease;
+          transition: 0.3s;
 
           &:hover {
-            background-color: darken($color-navy, 10%);
-            transform: translateY(-2px);
+            background: $color-peach;
+            color: $color-navy;
           }
         }
       }
     }
   }
+  // ... seus estilos anteriores ...
 
-  .no-results {
-    text-align: center;
-    padding: $spacing-2xl $spacing-md;
-    background-color: $color-white;
-    border-radius: 8px;
-    margin-top: $spacing-2xl;
-
-    p {
-      color: $color-light-text;
-      font-size: 1.1rem;
-      margin-bottom: $spacing-lg;
+  .skeleton {
+    pointer-events: none;
+    .skeleton-image {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+      background-size: 200% 100%;
+      animation: shine 1.5s linear infinite;
     }
-
-    button {
-      background-color: $color-navy;
-      color: $color-white;
-      border: none;
-      padding: $spacing-sm $spacing-lg;
-      border-radius: 4px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.3s ease;
-
-      &:hover {
-        background-color: darken($color-navy, 10%);
-        transform: translateY(-2px);
+    .skeleton-info {
+      padding: 20px;
+      .skeleton-line {
+        background: linear-gradient(
+          110deg,
+          #ececec 8%,
+          #f5f5f5 18%,
+          #ececec 33%
+        );
+        background-size: 200% 100%;
+        animation: shine 1.5s linear infinite;
+        margin-bottom: 10px;
+        border-radius: 4px;
+        &.title {
+          height: 25px;
+          width: 70%;
+        }
+        &.text {
+          height: 18px;
+          width: 50%;
+        }
       }
+    }
+  }
+
+  @keyframes shine {
+    to {
+      background-position-x: -200%;
     }
   }
 }

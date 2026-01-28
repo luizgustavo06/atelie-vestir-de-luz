@@ -9,7 +9,7 @@
       <h2>Formulário de Agendamento</h2>
 
       <div class="success-message" *ngIf="submitted">
-        <p>✓ Agendamento realizado com sucesso! Entraremos em contato em breve.</p>
+        <p>✓ Agendamento iniciado! Verifique seu WhatsApp para concluir o envio.</p>
       </div>
 
       <div class="error-message" *ngIf="errorMessage" style="color: #721c24; background-color: #f8d7da; border: 1px solid #f5c6cb; padding: 10px; margin-bottom: 15px; border-radius: 4px;">
@@ -46,7 +46,7 @@
             id="phone" 
             [(ngModel)]="formData.phone" 
             name="phone"
-            placeholder="(85) 98765-4321"
+            placeholder="(11)99652-0776"
             required>
         </div>
 
@@ -82,8 +82,8 @@
             rows="5"></textarea>
         </div>
 
-        <button type="submit" class="btn-primary" [disabled]="!isFormValid() || isLoading" (click)="enviaAgendamento($event)">
-          <span *ngIf="isLoading">Enviando...</span>
+        <button type="submit" class="btn-primary" [disabled]="!isFormValid() || isLoading">
+          <span *ngIf="isLoading">Processando...</span>
           <span *ngIf="!isLoading">Agendar Atendimento</span>
         </button>
       </form>
@@ -120,8 +120,8 @@
 
       <div class="location-card">
         <h3>Localização</h3>
-        <p>Jandira/SP proximo ao cemiterio Alpha Campus</p>
-        <p >Atendimento presencial ou a domicílio</p>
+        <p>Jandira/SP próximo ao cemitério Alpha Campus</p>
+        <p>Atendimento presencial ou a domicílio</p>
         <p class="card-description"><strong>Endereço completo será enviado via WhatsApp.</strong></p>
       </div>
     </aside>
